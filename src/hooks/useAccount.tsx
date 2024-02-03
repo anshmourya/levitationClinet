@@ -56,13 +56,21 @@ const useAccount = () => {
       // Calculate GST (18% of grand total)
       const finalDetail = { products, total: grandTotal + 0.18 * grandTotal };
 
-      const { data } = await axios.post(`${serverUrl}/product`, finalDetail, {
+      const response = await axios.post(`${serverUrl}/product`, finalDetail, {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("uid"),
+          Authorization: localStorage.getItem("uid"),
         },
+        responseType: "arraybuffer", // Ensure that the response is treated as binary data
       });
 
-      console.log(data);
+      // Create a Blob from the response data
+      const blob = new Blob([response.data], { type: "application/pdf" });
+
+      // Create a download link and trigger a click event
+      const link = document.createElement("a");
+      link.href = window.URL.createObjectURL(blob);
+      link.download = "invoice.pdf";
+      link.click();
     } catch (error) {
       console.log(error);
     }
