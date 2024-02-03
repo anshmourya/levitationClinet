@@ -1,17 +1,17 @@
-
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 const useAuth = () => {
-    const [isloggedIn, setIsloggedIn] = useState<boolean>(false)
-    const [loading, setLoading] = useState<boolean>(false)
+  const [isloggedIn, setIsloggedIn] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
-    useEffect(() => {
-        const token = localStorage.getItem('token')
-        if (token) {
-            setIsloggedIn(true)
-        }
+  useEffect(() => {
+    setLoading(true);
+    const token = localStorage.getItem("uid");
+    if (token) {
+      setIsloggedIn(true);
+    }
+    setLoading(false);
+  }, []);
+  return { isloggedIn, setIsloggedIn, loading, setLoading };
+};
 
-    }, [])
-    return { isloggedIn, setIsloggedIn, loading, setLoading }
-}
-
-export default useAuth
+export default useAuth;

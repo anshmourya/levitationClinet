@@ -1,9 +1,12 @@
-import React from 'react'
+import Note from "@/components/note";
+import React from "react";
 
-const Bill = () => {
-    return (
-        <div>Bill</div>
-    )
-}
+const Bill = (): JSX.Element => {
+  return (
+    <>
+      <Note />
+    </>
+  );
+};
 
-export default Bill
+export default Bill;
