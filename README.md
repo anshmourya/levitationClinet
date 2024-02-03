@@ -1,30 +1,44 @@
-# React + TypeScript + Vite
+<h3 align="center">levitationclinet</h3>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 🧐 About <a name = "about"></a>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+this project is about the invoice generation only for the logged in user. with the technologies of the vite , react-query , react-hook-form , shadcn
 
-## Expanding the ESLint configuration
+## 🏁 Getting Started <a name = "getting_started"></a>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+this is the live project so you don't need to setup the project by yourself. but if you still want to to do that.
 
-- Configure the top-level `parserOptions` property like this:
+### Installing
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+A step by step series of examples that tell you how to get a development env running.
+
+```
+npm i
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+copy the env.example file to the .env file.
+
+```
+SERVER_URL = "http://localhost:8080"
+```
+
+## 🚀 Deployment <a name = "deployment"></a>
+
+the website is deployed [link]("https://levitation-clinet.vercel.app/signin)
+
+## ⛏️ Built Using <a name = "built_using"></a>
+
+- [MongoDB](https://www.mongodb.com/) - Database
+- [Express](https://expressjs.com/) - Server Framework
+- [NodeJs](https://nodejs.org/en/) - Server Environment
+- [react-query]() - for optimzed api calls
+- [shadCn]() - compoent libary
+- [react-hook-form]() - to make the form more flexible and secure
+
+## ✍️ Authors <a name = "authors"></a>
+
+- [@anshmourya](https://twitter.com/Ansh__Mourya) - twitter
+- [@anshmourya](https://www.linkedin.com/in/ansh-mourya-8504b122a/) - linkden
+- [@anshmourya](https://bento.me/anshmourya) - portfolio
