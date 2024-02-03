@@ -7,9 +7,21 @@ import { toast } from "sonner";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import useAccount, { Product } from "@/hooks/useAccount";
+import { useMutation } from "@tanstack/react-query";
+import Page from "../pageLoader";
 
 const Invoice = () => {
   const { generateInvoice } = useAccount();
+  const { mutate, isPending } = useMutation({
+    mutationKey: ["billGenerate"],
+    mutationFn: generateInvoice,
+    onSuccess: () => {
+      toast.success("download the invoice");
+    },
+    onError: () => {
+      toast.error("Error downloading invoice");
+    },
+  });
   const {
     control,
     handleSubmit,
@@ -39,9 +51,13 @@ const Invoice = () => {
   };
 
   const submit = (data: { products?: Product[] }) => {
-    generateInvoice(data.products || []);
+    // generateInvoice(data.products || []);
+    mutate(data.products || []);
   };
 
+  if (isPending) {
+    return <Page />;
+  }
   return (
     <div className="max-w-[1000px] m-auto my-10">
       <form onSubmit={handleSubmit(submit)}>

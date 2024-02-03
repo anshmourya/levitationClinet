@@ -1,5 +1,4 @@
 import axios from "axios";
-
 export interface User {
   name: string;
   email: string;
@@ -71,8 +70,12 @@ const useAccount = () => {
       link.href = window.URL.createObjectURL(blob);
       link.download = "invoice.pdf";
       link.click();
+
+      return true;
     } catch (error) {
       console.log(error);
+
+      return false;
     }
   };
 
