@@ -1,10 +1,11 @@
 import Note from "@/components/note";
-import React from "react";
+import Invoice from "@/components/Invoice";
 
 const Bill = (): JSX.Element => {
   return (
     <>
       <Note />
+      <Invoice />
     </>
   );
 };

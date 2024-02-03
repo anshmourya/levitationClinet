@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import useAccount, { signinUser } from "@/hooks/useAccount";
+import useAccount, { SigninUser } from "@/hooks/useAccount";
 const Signin = () => {
   const { createSession } = useAccount();
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const Signin = () => {
     },
   });
 
-  const onSubmit = async (data: signinUser) => {
+  const onSubmit = async (data: SigninUser) => {
     if (await createSession(data)) {
       toast.success(
         "you're successfully signed in now you can generate the invoices"
