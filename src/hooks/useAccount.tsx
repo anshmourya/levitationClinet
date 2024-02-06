@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "sonner";
 export interface User {
   name: string;
   email: string;
@@ -16,6 +17,11 @@ export interface Product {
   rate: number;
 }
 
+export interface Error {
+  detail: object;
+  message: string;
+  status: string;
+}
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 const useAccount = () => {
@@ -35,7 +41,8 @@ const useAccount = () => {
       localStorage.setItem("uid", data.token);
       return true;
     } catch (error) {
-      console.error(error);
+      const expextion: Error = error.response.data;
+      toast.error(expextion.message);
       return false;
     }
   };
@@ -73,8 +80,8 @@ const useAccount = () => {
 
       return true;
     } catch (error) {
-      console.log(error);
-
+      const expextion: Error = error.response.data;
+      toast.error(expextion.message);
       return false;
     }
   };
